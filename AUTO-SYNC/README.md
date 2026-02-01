@@ -1,6 +1,6 @@
 HAProxy Configuration Auto-Synchronization Using rsync and inotify
 
-Overview
+Overview:
 
 This document explains how to automatically synchronize HAProxy configuration files between two HAProxy servers.
 
@@ -61,6 +61,7 @@ systemctl start haproxy-sync
 systemctl status haproxy-sync
 
 tail -f /var/log/haproxy-sync.log
+
 
 
 
