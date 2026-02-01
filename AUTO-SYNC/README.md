@@ -1,12 +1,21 @@
 HAProxy Configuration Auto-Synchronization Using rsync and inotify
+
 Overview
+
 This document explains how to automatically synchronize HAProxy configuration files between two HAProxy servers.
+
 The goal is to edit the configuration on only one server (primary) and have the changes automatically validated, synchronized, and applied on the secondary server without manual intervention.
+
 This solution uses:
+
 SSH for secure communication
+
 rsync for file synchronization
+
 inotify to detect configuration changes
+
 HAProxy validation (haproxy -c) to prevent invalid configurations
+
 Graceful reload to avoid downtime
 
 STEP 1: Install required packages (on haproxy1)
@@ -52,6 +61,7 @@ systemctl start haproxy-sync
 systemctl status haproxy-sync
 
 tail -f /var/log/haproxy-sync.log
+
 
 
 
