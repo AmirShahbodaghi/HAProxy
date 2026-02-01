@@ -33,8 +33,13 @@ Create service:
 vi /etc/systemd/system/haproxy-sync.service
 
 systemctl daemon-reload
+
 systemctl enable haproxy-sync
+
 systemctl start haproxy-sync
+
 systemctl status haproxy-sync
+
 tail -f /var/log/haproxy-sync.log
+
 
