@@ -1,0 +1,10 @@
+[Unit]
+Description=HAProxy Auto Sync Service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/haproxy-watch.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

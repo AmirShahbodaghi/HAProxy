@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  haproxy:
+    image: haproxy:2.8
+    network_mode: "host"
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    restart: always
+
+  keepalived:
+    image: osixia/keepalived:2.0.20
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./keepalived.conf:/etc/keepalived/keepalived.conf:ro
+    restart: always
+
+
+
+
+
+
+
