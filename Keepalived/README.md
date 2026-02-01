@@ -42,35 +42,12 @@ Any critical service needing zero (or minimal) downtime
 
 ---------------------------------------------------------------------------------------------
 
-Architecture Overview
-Clients
-   |
-Virtual IP (VIP) 192.168.1.100
-   |
--------------------------------
-| Server 1 (MASTER)           |
-|  HAProxy + Keepalived       |
--------------------------------
-| Server 2 (BACKUP)           |
-|  HAProxy + Keepalived       |
--------------------------------
-
 Keepalived manages the Virtual IP (VIP)
 HAProxy listens on the VIP
 Only one server owns the VIP at a time
 Docker runs in host network mode (required for VRRP)
 
-مراحل اجرای Docker
-روی هر HAProxy سرور، فایل‌های haproxy.cfg و keepalived.conf را قرار دهید.
 
-سپس اجرا کنید:
-sudo docker-compose up -d
-
-بررسی اینکه VIP بالا آمده است:
-ip addr show | grep 192.168.100.10
-
-تست اتصال به Kubernetes API:
-curl -k https://192.168.100.10:6443/version
 
 
 
